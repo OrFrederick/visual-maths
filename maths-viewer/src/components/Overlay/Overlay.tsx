@@ -129,7 +129,7 @@ function Overlay(props: OverlayProps) {
           tooltip="Number of iterations for the Fractal"
           handler={handleMaxIteration}
           value={maxIteration}
-          min="10"
+          min="1"
           max="3000"
         />
         {fractalId === 1 && (
@@ -164,11 +164,11 @@ function Overlay(props: OverlayProps) {
         />
         <Slider
           title="Workers"
-          tooltip="NUmber of background jobs started to generate the tiles"
+          tooltip="Number of background jobs started to generate the tiles"
           handler={handleNumberWorkers}
           value={numberWorkers}
           min="1"
-          max="20"
+          max="10"
         />
         <div className="item w-1/3 m-auto flex flex-row justify-center mt-5 border border-gray-700 rounded bg-white font-bold text-gray-700 hover:bg-gray-700 hover:text-white">
           <button
