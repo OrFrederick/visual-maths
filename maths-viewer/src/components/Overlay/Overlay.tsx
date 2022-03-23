@@ -105,7 +105,7 @@ function Overlay(props: OverlayProps) {
             value={theme}
             className="w-1/2 m-auto"
           >
-            <option value="5">Rainbow</option>
+            <option value="5">Orange Rainbow</option>
             <option value="0">Black</option>
             <option value="1">White</option>
             <option value="2">Red</option>
