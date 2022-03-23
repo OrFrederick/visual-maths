@@ -3,7 +3,10 @@ This is my project, where you can explore the <a href="https://en.wikipedia.org/
 
 <a href="https://orfrederick.github.io/FractalViewer/">https://orfrederick.github.io/FractalViewer/</a>
 
-# Features:
+# How its built
+Its a React App, which uses Rust compiled to Webassembly to calculate the tiles. The tiles are orgeanized by a <a href="https://leafletjs.com/">leafletjs</a> map.
+
+# Features
   - Zoom and explore the fractal
   - Fly to a random and interesting point inside the fractal
   - Change the number of iterations per pixel
