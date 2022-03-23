@@ -1,5 +1,6 @@
 {
   "name": "maths-viewer",
+  "homepage": "https://tomerpacific.github.io/maths-viewer/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
