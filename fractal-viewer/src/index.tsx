@@ -1,15 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import App from './App';
+import Fractals from './components/Viewers/Fractals';
+import GameOfLifeViewer from './components/Viewers/GameOfLife';
+import NoPage from './components/Others/NoPage';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const routs = (
+  <BrowserRouter>
+    <Routes>
+      {/*  <Route path="/" element={<></>}> */}
+      <Route index element={<App />} />
+      <Route path="fractals" element={<Fractals />} />
+      <Route path="gameOfLife" element={<GameOfLifeViewer />} />
+      <Route path="*" element={<NoPage />} />
+      {/* </Route> */}
+    </Routes>
+  </BrowserRouter>
 );
+
+ReactDOM.render(routs, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

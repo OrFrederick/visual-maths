@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Slider from './Slider';
-import { OverlayProps } from '../../d';
+import { OverlayProps } from '../../../d';
 // @ts-ignore
 import MathJax from 'mathjax3-react';
 

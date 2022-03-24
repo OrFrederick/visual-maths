@@ -1,5 +1,5 @@
-import Map from '../Map/Map';
-import Overlay from '../Overlay/Overlay';
+import Map from '../FractalViewer/Map/Map';
+import Overlay from '../FractalViewer/Overlay/Overlay';
 import { Config, Flight } from '../../d';
 import React, { useState } from 'react';
 import L from 'leaflet';

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SliderProps } from '../../d';
+import { SliderProps } from '../../../d';
 import './slider.css';
 
 function Slider(props: SliderProps) {

@@ -1,11 +1,14 @@
 import './App.css';
-import Fractals from './components/Viewers/Fractals';
+import { Link } from 'react-router-dom';
 
 function App() {
   localStorage.clear();
   return (
     <div className="App">
-      <Fractals></Fractals>
+      <h1>What are you looking for?</h1>
+      <Link to="/fractals">Fractals</Link>
+      <br></br>
+      <Link to="/gameOfLife">GameOfLive</Link>
     </div>
   );
 }

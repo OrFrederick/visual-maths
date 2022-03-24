@@ -2,7 +2,7 @@
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useState, useEffect } from 'react';
-import { TileWorker, WorkerJob, Coordinates, MapProps } from '../../d';
+import { TileWorker, WorkerJob, Coordinates, MapProps } from '../../../d';
 
 function Map(props: MapProps) {
   const [map, setMap] = useState<L.Map>();
@@ -94,7 +94,7 @@ function Map(props: MapProps) {
   const createWorker = (): TileWorker => {
     let w: TileWorker = {
       worker: new Worker(
-        new URL('../../Workers/FractalWorker', import.meta.url)
+        new URL('../../../Workers/FractalWorker', import.meta.url)
       ),
       ready: false,
       tasks: 0,
