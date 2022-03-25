@@ -19,7 +19,7 @@ impl fmt::Display for GameOfLife {
 } */
 
 #[wasm_bindgen]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Cell {
     Dead = 0,
     Alive = 1,
@@ -56,27 +56,6 @@ impl GameOfLife {
         }
     }
 
-    fn fill_cells(&mut self){
-        let cells: Vec<Cell>;
-        if self.random {
-            cells = (0..self.width * self.height)
-            .map(|_| {
-                let mut rng = rand::thread_rng();
-                let r: f64 = rng.gen();
-                if r < 0.5 {
-                    return Cell::Dead
-                } 
-                Cell::Alive
-            })
-            .collect();
-        } else {
-            cells = (0..self.width * self.height)
-            .map(|_| {Cell::Dead})
-            .collect();
-        }
-        self.cells = cells;
-    }
-
     fn get_index(&self, row: u32, column: u32) -> usize {
         (row * self.width + column) as usize
     }
@@ -96,6 +75,14 @@ impl GameOfLife {
             }
         }
         count
+    }
+
+    pub fn clear_grid(&mut self) {
+        self.cells = (0..self.width * self.height)
+        .map(|_| {
+            Cell::Dead
+        })
+        .collect();
     }
 
     pub fn tick(&mut self) {
@@ -119,6 +106,11 @@ impl GameOfLife {
         self.cells = next;
     }
 
+    pub fn change_cell(&mut self, x: u32, y: u32, val: Cell) {
+        let idx = self.get_index(x, y);
+        self.cells[idx] = val;
+    }
+
     pub fn width(&self) -> u32 {
         self.width
     }
@@ -129,15 +121,5 @@ impl GameOfLife {
 
     pub fn cells(&self) -> *const Cell {
         self.cells.as_ptr()
-    }
-
-    pub fn set_width(&mut self, width: u32) {
-        self.width = width;
-        self.fill_cells()
-    }
-
-    pub fn set_height(&mut self, height: u32){
-        self.height = height;
-        self.fill_cells()
     }
 }
