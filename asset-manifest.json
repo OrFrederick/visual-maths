@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/FractalViewer/static/css/main.b6df448c.css",
-    "main.js": "/FractalViewer/static/js/main.2d2bc194.js",
+    "main.js": "/FractalViewer/static/js/main.a8067cdf.js",
     "static/js/442.1b92f98e.chunk.js": "/FractalViewer/static/js/442.1b92f98e.chunk.js",
     "static/js/107.9b1446ac.chunk.js": "/FractalViewer/static/js/107.9b1446ac.chunk.js",
     "static/js/619.9a3c536d.chunk.js": "/FractalViewer/static/js/619.9a3c536d.chunk.js",
     "module.wasm": "/FractalViewer/d757fcda13529556a7d9.module.wasm",
     "index.html": "/FractalViewer/index.html",
     "main.b6df448c.css.map": "/FractalViewer/static/css/main.b6df448c.css.map",
-    "main.2d2bc194.js.map": "/FractalViewer/static/js/main.2d2bc194.js.map",
+    "main.a8067cdf.js.map": "/FractalViewer/static/js/main.a8067cdf.js.map",
     "442.1b92f98e.chunk.js.map": "/FractalViewer/static/js/442.1b92f98e.chunk.js.map",
     "107.9b1446ac.chunk.js.map": "/FractalViewer/static/js/107.9b1446ac.chunk.js.map",
     "619.9a3c536d.chunk.js.map": "/FractalViewer/static/js/619.9a3c536d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b6df448c.css",
-    "static/js/main.2d2bc194.js"
+    "static/js/main.a8067cdf.js"
   ]
 }
