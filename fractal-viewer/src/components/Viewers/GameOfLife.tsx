@@ -1,6 +1,8 @@
 import { GameOfLife, Cell } from 'wasm';
 import { memory } from 'wasm/wasm_bg.wasm';
 import React, { useEffect, useRef, useState } from 'react';
+import IconButton from '../GameOfLive/IconButton';
+import { Link } from 'react-router-dom';
 
 function GameOfLifeViewer() {
   const GRID_COLOR = '#CCCCCC';
@@ -12,13 +14,15 @@ function GameOfLifeViewer() {
 
   const [config, setConfig] = useState({
     random: true,
-    cols: 80,
+    cols: 60,
     rows: 40,
     cellSize: 20,
   });
 
   const [rendering, setRendering] = useState(false);
   const [animationId, setAnimationId] = useState(0);
+  const [mouseDown, setMouseDown] = useState(false);
+  const [lastDrawn, setLastDrawn] = useState(0);
   const [gameOfLife, setGameOfLife] = useState<GameOfLife>(
     new GameOfLife(config.cols, config.rows)
   );
@@ -142,6 +146,7 @@ function GameOfLifeViewer() {
   const handleRandomGeneration = () => {
     if (!rendering) {
       let gol = new GameOfLife(config.cols, config.rows);
+      setGameOfLife(gol);
       drawGrid();
       drawCells(gol.cells());
     }
@@ -164,8 +169,8 @@ function GameOfLifeViewer() {
     ctx.stroke();
   };
 
-  const handleToggleCell = (e: React.MouseEvent) => {
-    if (!canvasRef.current) {
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!canvasRef.current || !mouseDown) {
       return;
     }
 
@@ -175,74 +180,63 @@ function GameOfLifeViewer() {
       cellsPtr,
       config.cols * config.rows
     );
-
     const rect = canvasRef.current.getBoundingClientRect();
+
     let x = e.clientX - rect.left;
     let y = e.clientY - rect.top;
     x = Math.floor(x / (config.cellSize + 1));
     y = Math.floor(y / (config.cellSize + 1));
-    let idx = getIndex(x, y);
-    gameOfLife.change_cell(x, y, cells[idx] === 1 ? 0 : 1);
-    redraw(x, y, cells[idx] === 1 ? 0 : 1);
+
+    let idx = getIndex(y, x);
+    if (idx !== lastDrawn) {
+      let v = cells[idx] === 1 ? 0 : 1;
+
+      gameOfLife.change_cell(y, x, v);
+      redraw(x, y, v);
+      setLastDrawn(idx);
+    }
   };
 
   const handleClear = () => {
     gameOfLife.clear_grid();
+    setRendering(false);
     drawCells();
-    /* if (!canvasRef.current) {
-      return;
-    }
-
-    const ctx = canvasRef.current.getContext('2d');
-    if (!ctx) {
-      return;
-    }
-    ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); */
   };
 
   return (
     <div>
-      <h1>Game of Life</h1>
+      <Link to="/">
+        <IconButton
+          handler={() => {}}
+          icon="fa-solid fa-house"
+          classes="hover:bg-blue-800 bg-blue-600 absolute left-2 top-2"
+        />
+      </Link>
+      <h1 className="font-bold text-4xl w-fit m-auto mb-2 text-blue-500">
+        Game of Life
+      </h1>
       <canvas
         className="w-fit m-auto"
         ref={canvasRef}
         id="game-of-life"
-        onClick={handleToggleCell}
+        onMouseMove={handleMouseMove}
+        onMouseDown={() => setMouseDown(true)}
+        onMouseLeave={() => setMouseDown(false)}
+        onMouseUp={() => setMouseDown(false)}
       ></canvas>
-
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        onClick={handleStart}
-      >
-        START
-      </button>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        onClick={handleStop}
-      >
-        STOP
-      </button>
-
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        onClick={handleNextStep}
-      >
-        Next Step
-      </button>
-
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        onClick={handleRandomGeneration}
-      >
-        Random
-      </button>
-
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        onClick={handleClear}
-      >
-        Clear
-      </button>
+      <div className="actions w-fit m-auto mt-5 bg-blue-200 py-2 px-4 rounded-full">
+        {rendering ? (
+          <IconButton handler={handleStop} icon="fa-solid fa-pause" />
+        ) : (
+          <IconButton handler={handleStart} icon="fa-solid fa-play" />
+        )}
+        <IconButton handler={handleNextStep} icon="fa-solid fa-forward-step" />
+        <IconButton
+          handler={handleRandomGeneration}
+          icon="fa-solid fa-shuffle"
+        />
+        <IconButton handler={handleClear} icon="fa-solid fa-trash-can" />
+      </div>
     </div>
   );
 }

@@ -78,11 +78,7 @@ impl GameOfLife {
     }
 
     pub fn clear_grid(&mut self) {
-        self.cells = (0..self.width * self.height)
-        .map(|_| {
-            Cell::Dead
-        })
-        .collect();
+        self.cells = vec![Cell::Dead; (self.width*self.height) as usize]; 
     }
 
     pub fn tick(&mut self) {
@@ -106,8 +102,8 @@ impl GameOfLife {
         self.cells = next;
     }
 
-    pub fn change_cell(&mut self, x: u32, y: u32, val: Cell) {
-        let idx = self.get_index(x, y);
+    pub fn change_cell(&mut self, row: u32, col: u32, val: Cell) {
+        let idx = self.get_index(row, col);
         self.cells[idx] = val;
     }
 

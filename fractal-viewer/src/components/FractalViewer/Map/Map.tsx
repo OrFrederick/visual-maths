@@ -142,7 +142,7 @@ function Map(props: MapProps) {
       tmpMap.on('zoom', () => {
         setZoom(tmpMap.getZoom());
       });
-
+      tmpMap.zoomControl.setPosition('bottomright');
       /* tmpMap.addEventListener('mousemove', (e: L.LeafletMouseEvent) => {
         console.log(e.latlng.lat, e.latlng.lng);
       }); */

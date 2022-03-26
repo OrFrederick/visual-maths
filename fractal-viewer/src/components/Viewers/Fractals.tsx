@@ -3,6 +3,8 @@ import Overlay from '../FractalViewer/Overlay/Overlay';
 import { Config, Flight } from '../../d';
 import React, { useState } from 'react';
 import L from 'leaflet';
+import IconButton from '../GameOfLive/IconButton';
+import { Link } from 'react-router-dom';
 
 function Fractals() {
   const [zoom, setZoom] = useState(2);
@@ -137,6 +139,13 @@ function Fractals() {
 
   return (
     <div>
+      <Link to="/">
+        <IconButton
+          handler={() => {}}
+          icon="fa-solid fa-house"
+          classes="z-401 hover:bg-gray-800 bg-gray-600 absolute left-2 top-2"
+        />
+      </Link>
       <Overlay
         handleNumberWorkers={handleNumberWorkers}
         handleFractalChange={handleFractalChange}
