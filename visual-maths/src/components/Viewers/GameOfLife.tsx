@@ -198,9 +198,10 @@ function GameOfLifeViewer() {
   };
 
   const handleClear = () => {
-    gameOfLife.clear_grid();
-    setRendering(false);
-    drawCells();
+    if (!rendering) {
+      gameOfLife.clear_grid();
+      drawCells();
+    }
   };
 
   return (
@@ -242,5 +243,3 @@ function GameOfLifeViewer() {
 }
 
 export default GameOfLifeViewer;
-
-// y = row * (config.cellSize + 1) + 1

@@ -1,6 +1,6 @@
 {
-  "name": "fractal-viewer",
-  "homepage": "https://orfrederick.github.io/FractalViewer/",
+  "name": "visual-maths",
+  "homepage": "https://orfrederick.github.io/visual-maths/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

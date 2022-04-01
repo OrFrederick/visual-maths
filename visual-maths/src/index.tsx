@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -9,7 +8,7 @@ import GameOfLifeViewer from './components/Viewers/GameOfLife';
 import NoPage from './components/Others/NoPage';
 
 const routs = (
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Routes>
       {/*  <Route path="/" element={<></>}> */}
       <Route index element={<App />} />
