@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/FractalViewer/static/css/main.b6df448c.css",
-    "main.js": "/FractalViewer/static/js/main.a8067cdf.js",
-    "static/js/442.1b92f98e.chunk.js": "/FractalViewer/static/js/442.1b92f98e.chunk.js",
-    "static/js/107.9b1446ac.chunk.js": "/FractalViewer/static/js/107.9b1446ac.chunk.js",
-    "static/js/619.9a3c536d.chunk.js": "/FractalViewer/static/js/619.9a3c536d.chunk.js",
-    "module.wasm": "/FractalViewer/d757fcda13529556a7d9.module.wasm",
-    "index.html": "/FractalViewer/index.html",
-    "main.b6df448c.css.map": "/FractalViewer/static/css/main.b6df448c.css.map",
-    "main.a8067cdf.js.map": "/FractalViewer/static/js/main.a8067cdf.js.map",
-    "442.1b92f98e.chunk.js.map": "/FractalViewer/static/js/442.1b92f98e.chunk.js.map",
-    "107.9b1446ac.chunk.js.map": "/FractalViewer/static/js/107.9b1446ac.chunk.js.map",
-    "619.9a3c536d.chunk.js.map": "/FractalViewer/static/js/619.9a3c536d.chunk.js.map"
+    "main.css": "/visual-maths/static/css/main.87f1ebff.css",
+    "main.js": "/visual-maths/static/js/main.1ff2993b.js",
+    "static/js/442.289d3d2d.chunk.js": "/visual-maths/static/js/442.289d3d2d.chunk.js",
+    "static/js/107.21e9ccb7.chunk.js": "/visual-maths/static/js/107.21e9ccb7.chunk.js",
+    "static/js/619.3647eba0.chunk.js": "/visual-maths/static/js/619.3647eba0.chunk.js",
+    "static/media/fractal.png": "/visual-maths/static/media/fractal.76215bc8bc4ae800ffc9.png",
+    "module.wasm": "/visual-maths/d757fcda13529556a7d9.module.wasm",
+    "static/media/gameoflife.png": "/visual-maths/static/media/gameoflife.564b947b42c030d0f837.png",
+    "index.html": "/visual-maths/index.html",
+    "main.87f1ebff.css.map": "/visual-maths/static/css/main.87f1ebff.css.map",
+    "main.1ff2993b.js.map": "/visual-maths/static/js/main.1ff2993b.js.map",
+    "442.289d3d2d.chunk.js.map": "/visual-maths/static/js/442.289d3d2d.chunk.js.map",
+    "107.21e9ccb7.chunk.js.map": "/visual-maths/static/js/107.21e9ccb7.chunk.js.map",
+    "619.3647eba0.chunk.js.map": "/visual-maths/static/js/619.3647eba0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6df448c.css",
-    "static/js/main.a8067cdf.js"
+    "static/css/main.87f1ebff.css",
+    "static/js/main.1ff2993b.js"
   ]
 }
