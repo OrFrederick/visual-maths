@@ -14,8 +14,8 @@ function GameOfLifeViewer() {
 
   const [config, setConfig] = useState({
     random: true,
-    cols: 60,
-    rows: 40,
+    cols: Math.round((window.innerWidth * 0.7) / 20),
+    rows: Math.round((window.innerHeight * 0.7) / 20),
     cellSize: 20,
   });
 
@@ -169,8 +169,9 @@ function GameOfLifeViewer() {
     ctx.stroke();
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!canvasRef.current || !mouseDown) {
+  const handleMouseMove = (e: React.MouseEvent, md?: boolean) => {
+    if (!canvasRef.current || (!mouseDown && !md)) {
+      console.log('return');
       return;
     }
 
@@ -205,27 +206,30 @@ function GameOfLifeViewer() {
   };
 
   return (
-    <div>
+    <div className="h-screen dark:bg-darkgray dark:text-white">
       <Link to="/">
         <IconButton
           handler={() => {}}
           icon="fa-solid fa-house"
-          classes="hover:bg-blue-800 bg-blue-600 absolute left-2 top-2"
+          classes="absolute left-2 top-2"
         />
       </Link>
-      <h1 className="font-bold text-4xl w-fit m-auto mb-2 text-blue-500">
+      <h1 className="font-bold text-4xl w-fit m-auto pb-2 pt-2">
         Game of Life
       </h1>
       <canvas
-        className="w-fit m-auto"
+        className="w-fit m-auto bg-white"
         ref={canvasRef}
         id="game-of-life"
         onMouseMove={handleMouseMove}
         onMouseDown={() => setMouseDown(true)}
         onMouseLeave={() => setMouseDown(false)}
         onMouseUp={() => setMouseDown(false)}
+        onClick={(e) => {
+          handleMouseMove(e, true);
+        }}
       ></canvas>
-      <div className="actions w-fit m-auto mt-5 bg-blue-200 py-2 px-4 rounded-full">
+      <div className="actions w-fit m-auto mt-5 bg-slate-300 py-2 px-4 rounded-full">
         {rendering ? (
           <IconButton handler={handleStop} icon="fa-solid fa-pause" />
         ) : (

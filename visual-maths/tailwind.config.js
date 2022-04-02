@@ -4,6 +4,10 @@ module.exports = {
     extend: {
       colors: {
         orange: '#ff0f00',
+        darkgray: '#2e3436',
+      },
+      fontFamily: {
+        handwritten: "'Patrick Hand', cursive",
       },
     },
   },
